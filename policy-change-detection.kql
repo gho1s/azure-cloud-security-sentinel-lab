@@ -1,0 +1,7 @@
+// Microsoft Sentinel scheduled analytics rule: detect successful Azure Policy assignment changes.
+AzureActivity
+| where OperationNameValue in~ (
+    "MICROSOFT.AUTHORIZATION/POLICYASSIGNMENTS/WRITE",
+    "MICROSOFT.AUTHORIZATION/POLICYASSIGNMENTS/DELETE"
+)
+| where ActivityStatusValue =~ "Success"

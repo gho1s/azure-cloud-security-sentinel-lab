@@ -1,0 +1,5 @@
+// Evidence query run in SecurityLab-Logs on October 11, 2026.
+SecurityIncident
+| where TimeGenerated > ago(24h)
+| project TimeGenerated, Title, Severity, Status
+| order by TimeGenerated desc

@@ -1,0 +1,5 @@
+// Evidence query run in SecurityLab-Logs on October 11, 2026.
+AzureActivity
+| where TimeGenerated > ago(24h)
+| where OperationNameValue contains "POLICYASSIGNMENTS"
+| order by TimeGenerated desc
